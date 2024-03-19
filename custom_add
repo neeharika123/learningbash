@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Check if two arguments are provided
+if [ "$#" -lt 1 ]; then
+    echo "Usage: addition <number1>"
+    exit 1
+fi
+
+# Initialize variable to store the sum
+sum=0
+
+# Loop through the arguments starting from the first number
+for arg in "$@"; do
+    # Add each argument to the sum
+    sum=$((sum + arg))
+done
+
+# Display the result
+echo "The sum of the provided numbers is: $sum"
