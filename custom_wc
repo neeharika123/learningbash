@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Check if a filename is provided as an argument
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <filename>"
+    exit 1
+fi
+
+# Check if the file exists
+if [ ! -f "$1" ]; then
+    echo "Error: File '$1' not found."
+    exit 1
+fi
+
+# Get the number of bytes in the file
+file_size=$(stat -f "%z" "$1")
+
+# Print the number of bytes
+echo "The number of bytes in '$1' is: $file_size"
